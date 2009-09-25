@@ -4,8 +4,17 @@ class Admin::ProductAvailabilitiesController < Admin::BaseController
   belongs_to :product
   
   show.before do
-    @test_var = 'Testing!'
     @availabilities = Availability.all
   end
   
+  def update_availabilities
+    product = Product.find_by_permalink(params[:product_id])
+    if product.update_attributes(params[:product])
+      flash[:notice] = "Product availabilities updated."
+    else
+      flash[:notice] = "Product availabilities update failed."
+    end
+    redirect_to admin_product_view_availability_path(product)
+  end
+
 end

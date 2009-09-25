@@ -1,5 +1,5 @@
 <%= error_messages_for :availability %>
-<% form_for @availability, :url => collection_path do |f| %>
+<% form_for @availability, :url => admin_availability_path do |f| %>
   <fieldset>
       <% f.field_container :text do %>
           <%= f.label :text, t("availability") %> <span class="required">*</span><br />

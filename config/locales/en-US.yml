@@ -1,8 +1,12 @@
 en-US:
   tab_availability: "Availability"
+  tab_availability_desc: "Maintain the availability descriptions availabile for products"
+  tab_product_availability: "Availability Messages"
+  title_product_availability: "Availability Messages"
   are_you_sure_availability: "Are you sure you want to delete this availability?"
   add_availability: "Add a new availability"
   availability: "Availability"
   when_in_stock_title: "One or more"
   when_out_of_stock_title: "Zero stock"
+  
 
