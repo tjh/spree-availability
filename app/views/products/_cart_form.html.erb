@@ -62,6 +62,8 @@
       <% end%>
     </ul>
   </div>
+  <% else %>
+    <div class="stock-message"><%= variant_availability @product.master %></div>
   <% end%>						
   <% if @product.has_stock? || Spree::Config[:allow_backorders] %>
       <%= text_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"), 
