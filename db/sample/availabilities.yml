@@ -1,0 +1,12 @@
+01:
+  text: 'In stock'
+02:
+  text: 'Temporarily out of stock'
+03:
+  text: 'In stock, usually ships in 1 to 3 days'
+04:
+  text: 'In stock, usually ships in 4 to 7 days'
+05:
+  text: 'Temporarily out of stock, restocking is expected shortly'
+06:
+  text: 'Special order, arrival dates may vary'
