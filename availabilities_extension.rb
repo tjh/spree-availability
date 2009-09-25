@@ -27,13 +27,13 @@ class AvailabilitiesExtension < Spree::Extension
       end
     end
 
-    Product.class_eval do
+    Variant.class_eval do
       def availability_message_out_of_stock
-        Availability.find( self.availability_id_out_of_stock ).text
+        Availability.find( self.product.availability_id_out_of_stock ).text
       end
       
       def availability_message_in_stock
-        Availability.find( self.availability_id_in_stock ).text
+        Availability.find( self.product.availability_id_in_stock ).text
       end
     end
 
