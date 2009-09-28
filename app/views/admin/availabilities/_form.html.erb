@@ -1,0 +1,8 @@
+<fieldset>
+  <% f.field_container :text do %>
+      <%= f.label :text, t("availability") %> <span class="required">*</span><br />
+      <%= f.text_field :text, :class => 'fullwidth title'  %>  
+      <%= f.error_message_on :text %>
+  <% end %>
+  <%= f.submit "Sumbit" %>
+</fieldset>

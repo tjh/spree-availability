@@ -1,0 +1,4 @@
+<%= error_messages_for :availability %>
+<% form_for @availability, :url => admin_availability_path do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
