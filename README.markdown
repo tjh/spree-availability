@@ -12,7 +12,7 @@ The store can have numerous messages available for products to use.
 Site Extension examples
 -----------------------
 
-*public/stylesheets/sass/site.sass*
+### public/stylesheets/sass/site.sass ###
 
 Add this for some basic styling
 
@@ -21,7 +21,7 @@ Add this for some basic styling
       :padding 0px 0px 0px 22px
       :text-weight normal
   
-*app/views/products/_cart_form.html.erb*
+### app/views/products/_cart_form.html.erb ###
 
 Update this file to show the messages chosen on the product view page.
 
@@ -34,13 +34,13 @@ Add an "else" to the "if @product.has_variants?" (near line #65). This is used w
     <% else %>
       <div class="stock-message"><%= variant_availability @product.master %></div>
 
-*app/views/orders/_line_item.html.erb*
+### app/views/orders/_line_item.html.erb ###
 
 Right after "truncate(variant.product.description...", add this line (around line #12)
 
     <div class="stock-message"><%= truncate( variant_availability( variant ), :length => 100, :omission => "...") %></div>
 
-*app/views/shared/_order_details.html.erb
+### app/views/shared/_order_details.html.erb ###
 
 After the line containing "item.variant.product.name" add this line (around line #12)
 
