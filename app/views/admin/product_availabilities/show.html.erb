@@ -1,0 +1,27 @@
+<%= render :partial => 'admin/shared/product_sub_menu' %>
+
+<%= render :partial => 'admin/shared/product_tabs', :locals => {:current => t("tab_product_availability").capitalize.pluralize } %>
+
+<div class="yui-u">
+  <% form_for @product, :url => admin_product_update_availability_path(@product) do |f| %>
+  	<fieldset>
+		<legend><%= t("title_product_availability") %></legend>
+
+    <% f.field_container :description do %>
+    	<%= f.label t("when_out_of_stock_title") %><br/>
+    	<%= collection_select :product, :availability_id_out_of_stock, @availabilities, :id, :text %>    	
+    <% end %>
+
+    <% f.field_container :when_in_stock do %>
+    	<%= f.label t("when_in_stock_title") %><br/>
+    	<%= collection_select :product, :availability_id_in_stock, @availabilities, :id, :text %>    	
+    <% end %>
+
+    <p class="form-buttons">
+      <%= button t("update"), admin_product_update_availability_url( @product ) %>
+      <%= t("or") %> <%= link_to t("cancel"), @product %>
+    </p>
+	  </fieldset>
+
+  <% end %>
+</div>
