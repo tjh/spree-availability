@@ -49,6 +49,7 @@ After the line containing "item.variant.product.name" add this line (around line
 To Do
 -----------------------
 
+* TESTS! I learned a lot and tried many different scenarios as I went (http://www.thekua.com/atwork/2008/02/if-you-do-test-driven-development-all-the-time-youre-doing-something-wrong/). I would like to use Cucumber, but it seems that I'll need to do that in the context of a full Spree site.
 * Setup the message table to allow multiple languages
 * Consider ways to apply messages to entire blocks (categories, product types, etc) at once to speed administration
 * Look into database calls and efficiency. Does the extension add uneccessary db burden?
