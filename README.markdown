@@ -1,4 +1,5 @@
-= Availability Extension
+Availability Extension
+======================
 
 Similar to Amazon's "This product ships within 24 hours" or "Should ship in 4-5 days", this extension provides two messages for each product that give customers more information on the item's availability.
 
@@ -8,7 +9,8 @@ Because a product may have some variants in stock and others out of stock, you c
 
 The store can have numerous messages available for products to use.
 
-= To Do
+To Do
+----------------------
 
 * Setup the message table to allow multiple languages
 * Consider ways to apply messages to entire blocks (categories, product types, etc) at once to speed administration
