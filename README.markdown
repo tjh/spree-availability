@@ -53,3 +53,4 @@ To Do
 * Consider ways to apply messages to entire blocks (categories, product types, etc) at once to speed administration
 * Look into database calls and efficiency. Does the extension add uneccessary db burden?
 * See if there is a way to override one of the product helpers like "variant_options" to add the availability message instead of having to edit the _cart_form.html.erb file.
+* May need to store the availability message in the order line item table as the site will show the current availability (even if the item was in stock as of the purchase)
