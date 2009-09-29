@@ -22,11 +22,11 @@
   </tr>
   <thead>
 <% @availabilities.each do |availability| %>
-  <tr id="<%= dom_id availability %>"> 
+  <tr id="<%= dom_id availability %>">
     <td><%= h availability.text %></td>
     <td class="actions">
       <%= link_to_edit availability %>&nbsp;
-      <%= link_to_delete availability %>
+      <%= link_to "Delete", admin_availability_path(availability), :confirm => 'Confirm deletion?', :method => :delete, :id => "delete_#{dom_id(availability)}" %>
     </td>
   </tr>
 <% end %> 
