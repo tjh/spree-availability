@@ -45,7 +45,7 @@ class AvailabilitiesExtension < Spree::Extension
       # human readable list of variant options
       def variant_options(v, allow_back_orders = Spree::Config[:allow_backorders], include_style = true)
         # backorder options are ignored here as we have a message for in stock items and out of stock
-        include_style ? "<span class =\"stock-message\">(#{variant_availability(v)}) #{v.options_text}</span>" : "#{variant_availability(v)} #{v.options_text}"
+        include_style ? "#{v.options_text}<br /><span class =\"stock-message\">#{variant_availability(v)}</span>" : "#{v.options_text}<br />#{variant_availability(v)}"
       end        
     end
     
