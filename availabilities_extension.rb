@@ -29,7 +29,7 @@ class AvailabilitiesExtension < Spree::Extension
       # def add_availability_tab
       #   # Seems broken, not sure what happened, used to work
       #   add_extension_admin_tab [ :availabilities, { :label => "tab_availability" } ]
-      # end      
+      # end
     end
 
     Admin::ConfigurationsController.class_eval do
@@ -38,6 +38,15 @@ class AvailabilitiesExtension < Spree::Extension
       def add_availability_link
         @extension_links << {:link => admin_availabilities_path, :link_text => t('tab_availability'), :description => t('tab_availability_desc')}
       end
+    end
+    
+    Spree::BaseHelper.module_eval do
+      # Redefine the following to use dynamic out of stock messages chosen for the product
+      # human readable list of variant options
+      def variant_options(v, allow_back_orders = Spree::Config[:allow_backorders], include_style = true)
+        # backorder options are ignored here as we have a message for in stock items and out of stock
+        include_style ? "<span class =\"stock-message\">(#{variant_availability(v)}) #{v.options_text}</span>" : "#{variant_availability(v)} #{v.options_text}"
+      end        
     end
     
     Spree::BaseController.class_eval do

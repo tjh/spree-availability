@@ -1,23 +1,30 @@
 <div class='toolbar'>
     <ul class='actions'>
       <li id="new_ot_link">
-        <%= button_link_to_remote "New Availability", 
-                                   {:url => new_object_url,
-                                    :method => :get,
-                                    :update => "new-availability",
-                                    :before => "Element.hide('new_ot_link');Element.show('busy_indicator')",
-                                    :complete => "Element.hide('busy_indicator')"}, :icon => 'add' %>
+        <%= 
+          # This is a mess. Ideally, would like to override "button_link_to_remote" so that we can
+          # change the link from '#' to the /admin/availabilities/new so that it degrades nicely
+          # when js is disabled (like in my cuke/webrat tests)
+          content_tag(:a, text_for_button_link(t('add_availability'), :icon => 'add'), html_options_for_button_link( {:href => new_object_url, :id => 'new_availability'} ) )
+
+          # Preferred code below, but busted for webrat tests via cucumber
+          # When putting this back, will need to include spinner and div for new availability
+          # above the H1
+          # button_link_to_remote "New Availability", 
+          #                            {:url => new_object_url,
+          #                             :method => :get,
+          #                             :update => "new-availability",
+          #                             :before => "Element.hide('new_ot_link');Element.show('busy_indicator')",
+          #                             :complete => "Element.hide('busy_indicator')"}, :icon => 'add'
+        %>
       </li> 
     </ul>
   <br class='clear' />
 </div>
-<%= image_tag "spinner.gif", :plugin=>"spree", :style => "display:none", :id => 'busy_indicator' %>
-<div id="new-availability"></div>
-
 <h1>Availabilities</h1>
 <table class="index">
   <thead>
-    <th>Text</td>
+    <th><%= t('label_availability') %></td>
     <th>&nbsp;</th>
   </tr>
   <thead>
@@ -26,7 +33,11 @@
     <td><%= h availability.text %></td>
     <td class="actions">
       <%= link_to_edit availability %>&nbsp;
-      <%= link_to "Delete", admin_availability_path(availability), :confirm => 'Confirm deletion?', :method => :delete, :id => "delete_#{dom_id(availability)}" %>
+      <%= 
+        # Really wanted to use the standard "link_to_delete" here. But it doesn't degrade 
+        # nicely, breaking my webrat/cucumber tests. Tried Selenium to no avail.
+        link_to icon("delete") + ' ' + t("delete"), admin_availability_path(availability), :confirm => 'Confirm deletion?', :method => :delete, :id => "delete_#{dom_id(availability)}" 
+      %>
     </td>
   </tr>
 <% end %> 

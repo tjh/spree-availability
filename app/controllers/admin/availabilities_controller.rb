@@ -3,9 +3,13 @@ class Admin::AvailabilitiesController < Admin::BaseController
 
   helper 'spree/base'
 
-  new_action.response do |format|
-    format.html {render :action => :new, :layout => false}
-  end
+  # Removed this to disable AJAX style add since it did not
+  # degrade without js and broke my webrat/cucumber features
+  #
+  # new_action.response do |format|
+  #   format.html {render :action => :new, :layout => false}
+  # end
+  
   update.response do |format|
     format.html { redirect_to admin_availabilities_path }
   end
