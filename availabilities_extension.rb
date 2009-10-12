@@ -4,6 +4,10 @@ class AvailabilitiesExtension < Spree::Extension
   url "http://timharvey.net"
 
   def activate
+    Product.class_eval do
+      attr_accessor :availability_id_in_stock, :availability_id_out_of_stock
+    end
+      
     Variant.class_eval do
       def availability_message_out_of_stock
         Availability.find( self.product.availability_id_out_of_stock ).text

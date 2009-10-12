@@ -25,12 +25,14 @@ describe Availability do
     availability1 = Availability.create!( :text => 'In stock' )
     availability2 = Availability.create!( :text => 'Out of stock' )
     product = Product.create!(
-      :name => 'Product',
-      :price => 9.99 
+      :name                         => 'Product',
+      :price                        => 9.99,
+      :availability_id_in_stock     => availability1.id,
+      :availability_id_out_of_stock => availability2.id
     )
-    product.availability_id_in_stock = availability1.id
-    product.availability_id_out_of_stock = availability2.id
-    
-     
+    availability1.destroy
+    Availability.all.should_not be_empty
+    availability2.destroy
+    Availability.all.should_not be_empty
   end
 end
