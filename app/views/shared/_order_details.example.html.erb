@@ -8,8 +8,7 @@
     </tr>
     <% @order.line_items.each do |item| %>
       <tr >
-        <td width="300"><%=item.variant.product.name-%> <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %><br />
-          <span class="stock-message"><%= variant_availability item.variant %></span></td>
+        <td width="300"><%=item.variant.product.name-%> <%= variant_options(item.variant) unless item.variant .option_values.empty? %><br /></td>
         <td valign="top"><%= number_to_currency item.price -%></td>
         <td valign="top"><%=item.quantity-%></td>
         <td valign="top" class="total_display"><span><%= number_to_currency (item.price * item.quantity)-%></span></td>
