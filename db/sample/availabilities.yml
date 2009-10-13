@@ -1,18 +1,12 @@
 01:
-  id: 1
   text: 'In stock'
 02:
-  id: 2
   text: 'Temporarily out of stock'
 03:
-  id: 3
   text: 'In stock, usually ships in 1 to 3 days'
 04:
-  id: 4
   text: 'In stock, usually ships in 4 to 7 days'
 05:
-  id: 5
   text: 'Temporarily out of stock, restocking is expected shortly'
 06:
-  id: 6
   text: 'Special order, arrival dates may vary'
