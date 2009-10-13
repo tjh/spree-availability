@@ -5,16 +5,19 @@ class AvailabilitiesExtension < Spree::Extension
 
   def activate
     Product.class_eval do
-      attr_accessor :availability_id_in_stock, :availability_id_out_of_stock
+      belongs_to :availability_in_stock,      :class_name => 'Availability', :foreign_key => 'availability_id_in_stock'
+      belongs_to :availability_out_of_stock,  :class_name => 'Availability', :foreign_key => 'availability_id_out_of_stock'
     end
       
     Variant.class_eval do
       def availability_message_out_of_stock
-        Availability.find( self.product.availability_id_out_of_stock ).text
+        return '' if self.product.availability_out_of_stock.nil?
+        Availability.find( self.product.availability_out_of_stock ).text
       end
       
       def availability_message_in_stock
-        Availability.find( self.product.availability_id_in_stock ).text
+        return '' if self.product.availability_in_stock.nil?
+        Availability.find( self.product.availability_in_stock ).text
       end
     end
 

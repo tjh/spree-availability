@@ -32,12 +32,12 @@
   <tr id="<%= dom_id availability %>">
     <td><%= h availability.text %></td>
     <td class="actions">
-      <%= link_to_edit availability %>&nbsp;
       <%= 
         # Really wanted to use the standard "link_to_delete" here. But it doesn't degrade 
         # nicely, breaking my webrat/cucumber tests. Tried Selenium to no avail.
-        link_to icon("delete") + ' ' + t("delete"), admin_availability_path(availability), :confirm => 'Confirm deletion?', :method => :delete, :id => "delete_#{dom_id(availability)}" 
+        link_to icon("delete") + ' ' + t("delete"), admin_availability_path(availability), :confirm => 'Confirm deletion?', :method => :delete, :id => "delete_#{dom_id(availability)}" unless availability.in_use_by_products? 
       %>
+      <%= link_to_edit availability %>&nbsp;
     </td>
   </tr>
 <% end %> 
