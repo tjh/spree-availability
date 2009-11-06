@@ -62,5 +62,8 @@ class AvailabilitiesExtension < Spree::Extension
     ActionMailer::QueueMailer.class_eval do
       helper AvailabilitiesHelper
     end
+    Admin::BaseController.class_eval do
+      helper AvailabilitiesHelper
+    end
   end
 end
