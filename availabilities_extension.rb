@@ -50,9 +50,9 @@ class AvailabilitiesExtension < Spree::Extension
     Spree::BaseHelper.module_eval do
       # Redefine the following to use dynamic out of stock messages chosen for the product
       # human readable list of variant options
-      def variant_options(v, allow_back_orders = Spree::Config[:allow_backorders], include_style = true)
+      def variant_options(v, allow_back_orders = Spree::Config[:allow_backorders], include_style = false)
         # backorder options are ignored here as we have a message for in stock items and out of stock
-        include_style ? "#{v.options_text}<br /><span class =\"stock-message\">#{variant_availability(v)}</span>" : "#{v.options_text}<br />#{variant_availability(v)}"
+        include_style ? "#{v.options_text}<br /><span class =\"stock-message\">#{variant_availability(v)}</span>" : "#{v.options_text} - #{variant_availability(v)}"
       end        
     end
     
