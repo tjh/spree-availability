@@ -22,7 +22,7 @@ namespace :spree do
           mkdir_p RAILS_ROOT + directory
           cp file, RAILS_ROOT + path
         end
-      end  
+      end
     end
   end
 end

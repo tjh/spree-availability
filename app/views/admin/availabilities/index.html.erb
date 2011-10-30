@@ -1,7 +1,7 @@
 <div class='toolbar'>
     <ul class='actions'>
       <li id="new_ot_link">
-        <%= 
+        <%=
           # This is a mess. Ideally, would like to override "button_link_to_remote" so that we can
           # change the link from '#' to the /admin/availabilities/new so that it degrades nicely
           # when js is disabled (like in my cuke/webrat tests)
@@ -10,14 +10,14 @@
           # Preferred code below, but busted for webrat tests via cucumber
           # When putting this back, will need to include spinner and div for new availability
           # above the H1
-          # button_link_to_remote "New Availability", 
+          # button_link_to_remote "New Availability",
           #                            {:url => new_object_url,
           #                             :method => :get,
           #                             :update => "new-availability",
           #                             :before => "Element.hide('new_ot_link');Element.show('busy_indicator')",
           #                             :complete => "Element.hide('busy_indicator')"}, :icon => 'add'
         %>
-      </li> 
+      </li>
     </ul>
   <br class='clear' />
 </div>
@@ -32,14 +32,14 @@
   <tr id="<%= dom_id availability %>">
     <td><%= h availability.text %></td>
     <td class="actions">
-      <%= 
-        # Really wanted to use the standard "link_to_delete" here. But it doesn't degrade 
+      <%=
+        # Really wanted to use the standard "link_to_delete" here. But it doesn't degrade
         # nicely, breaking my webrat/cucumber tests. Tried Selenium to no avail.
-        link_to icon("delete") + ' ' + t("delete"), admin_availability_path(availability), :confirm => 'Confirm deletion?', :method => :delete, :id => "delete_#{dom_id(availability)}" unless availability.in_use_by_products? 
+        link_to icon("delete") + ' ' + t("delete"), admin_availability_path(availability), :confirm => 'Confirm deletion?', :method => :delete, :id => "delete_#{dom_id(availability)}" unless availability.in_use_by_products?
       %>
       <%= link_to_edit availability %>&nbsp;
     </td>
   </tr>
-<% end %> 
+<% end %>
   </tbody>
 </table>
