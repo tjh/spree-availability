@@ -9,7 +9,7 @@ class Admin::AvailabilitiesController < Admin::BaseController
   # new_action.response do |format|
   #   format.html {render :action => :new, :layout => false}
   # end
-  
+
   update.response do |format|
     format.html { redirect_to admin_availabilities_path }
   end
