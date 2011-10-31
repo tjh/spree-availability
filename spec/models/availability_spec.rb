@@ -6,16 +6,16 @@ describe Availability do
       :text => 'In stock'
     }
   end
-  
+
   it "should create a new instance given valid attributes" do
     Availability.create!(@valid_attributes)
   end
-  
+
   it { should validate_presence_of( :text ) }
-  
+
   # Not sure why this won't work...bombs with "Can't find first Availability"
   # it { should validate_uniqueness_of( :text ) }
-  
+
   it "should only accept unique Availability messages" do
     Availability.create!(@valid_attributes)
     Availability.new.should validate_uniqueness_of( :text )

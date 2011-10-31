@@ -20,7 +20,7 @@ Add this for some basic styling
       :color grey
       :padding 0px 0px 0px 22px
       :text-weight normal
-  
+
 ### app/views/products/_cart_form.html.erb ###
 
 Update this file to show the messages chosen on the product view page.
